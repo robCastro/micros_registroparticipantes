@@ -2,29 +2,33 @@
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('persona', {
-		idpersona: {
+		id_persona: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			primaryKey: true,
 			autoIncrement: true
 		},
-		nombres: {
+		nombres_persona: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		apellidos: {
+		apellidos_persona: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		carnetorganiacion: {
+		carnet_organizacion_persona: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		fechanacimiento: {
-			type: DataTypes.DATE,
+		fecha_nacimiento_persona: {
+			type: DataTypes.DATEONLY,
+			allowNull: true
+		},
+		correo_persona: {
+			type: DataTypes.STRING,
 			allowNull: false
 		},
-		correo: {
+		contrasenia_persona: {
 			type: DataTypes.STRING,
 			allowNull: false
 		}

@@ -2,25 +2,17 @@
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('nivel', {
-		idnivel: {
+		id_nivel: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			primaryKey: true,
 			autoIncrement: true
 		},
-		idnivel_fk: {
-			type: DataTypes.INTEGER,
-			allowNull: true,
-			references: {
-				model: 'nivel',
-				key: 'idnivel'
-			}
-		},
-		nombre: {
+		nombre_nivel: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		descripcion: {
+		descripcion_nivel: {
 			type: DataTypes.STRING,
 			allowNull: true
 		}

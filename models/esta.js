@@ -2,31 +2,31 @@
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('esta', {
-		idesta: {
+		id_esta: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			primaryKey: true,
 			autoIncrement: true
 		},
-		activo: {
-			type: DataTypes.BOOLEAN,
-			allowNull: false
-		},
-		idnivel_fk: {
-			type: DataTypes.INTEGER,
-			allowNull: false,
-			references: {
-				model: 'nivel',
-				key: 'idnivel'
-			}
-		},
-		idpersona_fk: {
+		id_persona: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			references: {
 				model: 'persona',
-				key: 'idpersona'
+				key: 'id_persona'
 			}
+		},
+		id_nivel: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			references: {
+				model: 'nivel',
+				key: 'id_nivel'
+			}
+		},
+		activo_esta: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false
 		}
 	}, {
 		tableName: 'esta',
