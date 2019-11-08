@@ -1,11 +1,12 @@
 {
   "development": {
-    "username": "postgres",
-    "password": null,
-    "database": "participantes",
-    "host": "127.0.0.1",
+    "username": "vdyyxvyfawmaoe",
+    "password": "baaf424e88e7b3e880f666a21d23c80e2a0c7edfa5bc99ba60f16d99f313e81a",
+    "database": "de5hpjodio8t0t",
+    "host": "ec2-23-21-109-177.compute-1.amazonaws.com",
     "dialect": "postgres",
     "port": "5432",
+    "ssl": true,
     "operatorsAliases": false
   },
   "test": {

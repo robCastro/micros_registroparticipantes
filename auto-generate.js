@@ -26,6 +26,9 @@ var auto = new SequelizeAuto(config.database, config.username, config.password, 
     dialect: config.dialect,
     port: config.port,
     directory:'./models',
+    dialectOptions: {
+      ssl: config.ssl
+    },
     additional: {
         timestamps: false
     },

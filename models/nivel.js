@@ -8,6 +8,14 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
+		id_padre: {
+			type: DataTypes.INTEGER,
+			allowNull: true,
+			references: {
+				model: 'nivel',
+				key: 'id_nivel'
+			}
+		},
 		nombre_nivel: {
 			type: DataTypes.STRING,
 			allowNull: false
