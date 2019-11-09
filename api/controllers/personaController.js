@@ -21,14 +21,10 @@ exports.get_personas = function(req, res) {
 			});
 		}
 		else if(req.query.carnet){
-			models.sequelize.query(
-				`
-				select * from persona
-				where carnet_organizacion_persona = '${req.query.carnet}';
-				`,
-				{ type: models.sequelize.QueryTypes.SELECT }
-			).then(resultado_query => {
-				res.status(200).json(resultado_query);
+			Persona.findOne({
+				where:{carnet_organizacion_persona: req.query.carnet}
+			}).then(persona => {
+				res.status(200).json(persona);
 			}).catch(err => {
 				console.log("Error consultando registro de personas: " + err);
 				res.status(500).json({ msg: "Error consultando registro de personas" });
