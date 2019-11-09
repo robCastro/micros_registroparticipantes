@@ -14,7 +14,21 @@ exports.get_personas = function(req, res) {
 				`,
 				{ type: models.sequelize.QueryTypes.SELECT }
 			).then(resultado_query => {
-				res.status(200).json({total: resultado_query});
+				res.status(200).json(resultado_query);
+			}).catch(err => {
+				console.log("Error consultando registro de personas: " + err);
+				res.status(500).json({ msg: "Error consultando registro de personas" });
+			});
+		}
+		else if(req.query.carnet){
+			models.sequelize.query(
+				`
+				select * from persona
+				where carnet_organizacion_persona = '${req.query.carnet}';
+				`,
+				{ type: models.sequelize.QueryTypes.SELECT }
+			).then(resultado_query => {
+				res.status(200).json(resultado_query);
 			}).catch(err => {
 				console.log("Error consultando registro de personas: " + err);
 				res.status(500).json({ msg: "Error consultando registro de personas" });
