@@ -2,9 +2,12 @@
 
 const express = require('express');
 const RegistroController = require('../controllers/registroController');
+const personaController = require('../controllers/personaController');
 const router = express.Router();
 
-router.get('/personas', RegistroController.listar_personas);
+router.get('/personas/', personaController.get_personas);
+
+
 
 
 module.exports = router;
