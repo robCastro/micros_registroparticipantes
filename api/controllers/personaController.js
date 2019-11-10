@@ -2,6 +2,28 @@
 const models = require('../../models/index');
 const Persona = models.persona;
 
+exports.get_persona = function(req, res) {
+	if(Number.isNaN(parseInt(req.params.id))){
+		res.status(400).json({ msg: 'Utilizar parametros numericos'})
+	}
+	else{
+		Persona.findOne({
+			where:{id_persona: parseInt(req.params.id)}
+		}).then(persona => {
+			if(persona !== null){
+				res.status(200).json(persona);
+			}
+			else{
+				res.status(404).json({msg: "Persona no encontrada"});
+			}
+		}).catch(err => {
+			res.status(500).json({msg: 'Error en consultar la existencia de persona'});
+			console.log('Error en consultar la existencia de persona: '+ err);
+		})
+	}
+
+}
+
 
 exports.get_personas = function(req, res) {
 	if(Object.keys(req.query).length > 0){
